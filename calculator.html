@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      .calc-box {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        height: 330px;
+        width: 300px;
+        box-shadow: 20px, 20px black;
+        background-color: gray;
+        border-radius: 4px;
+
+      }
+      .calc-display {
+        width: 280px;
+        height: 80px;
+        border: 1px solid black;
+        position: absolute;
+        top: 20px;
+        left: 8px;
+        background-color: aliceblue;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 25px;
+        border-radius: 5px;
+      }
+      .calc-number-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 25px;
+        row-gap: 10px;
+        position: absolute;
+        top: 37%;
+        left: 14px;
+      }
+      .numbers {
+        width: 50px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        align-content: center;
+        background-color: aliceblue;
+        font-size:10px;
+      }
+      .btn {
+        grid-column: span 2;
+        background-color: orange;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+     <script>
+        function solve(input) {
+        document.getElementById("calc-display").value += input;
+        }
+  
+        function clearInput() {
+          document.getElementById("calc-display").value = "";
+        }
+        function delChar(){
+            let a = document.getElementById("calc-display").value;
+            document.getElementById("calc-display").value = a.slice(0, a.length - 1);
+        }
+      
+   function calculate() {
+      let a = document.getElementById("calc-display").value
+      let b = eval(a)
+      document.getElementById("calc-display").value = b
+      console.log(a)
+   }
+      </script>
+  </head>
+  <body>
+    <div class="calc-box">
+      <input class="calc-display" id="calc-display"></inout>
+      <div class="calc-number-grid">
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue;color:white"
+          value="+"
+          onclick="solve('+')"
+        >
+          +
+        </button>
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue"
+          onclick="solve('-')"
+        >
+          -
+        </button>
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue"
+          onclick="solve('*')"
+        >
+          x
+        </button>
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue"
+          onclick="solve('/')"
+        >
+          /
+        </button>
+        <button type="button" class="numbers" value="7" onclick="solve('7')">7</button>
+        <button type="button" class="numbers" value="8"onclick="solve('8')">8</button>
+        <button type="button" class="numbers" value="9"onclick="solve('9')">9</button>
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue"
+        >
+          %
+        </button>
+        <button type="button" class="numbers" data-num="4" onclick="solve('4')">4</button>
+        <button type="button" class="numbers" value="5" onclick="solve('5')">5</button>
+        <button type="button" class="numbers" value="6" onclick="solve('6')">6</button>
+        <button
+          type="button"
+          class="numbers"
+          style="background-color: cadetblue"
+          onclick="delChar()"
+        >
+          DEL
+        </button>
+        <button type="button" class="numbers" value="1" onclick="solve('1')">
+          1
+        </button>
+        <button type="button" class="numbers" value="2" onclick="solve('2')">2</button>
+        <button type="button" class="numbers" value="3" onclick="solve('3')" >3</button>
+        <button type="button" class="numbers" value="." onclick="solve('.')" style="background-color: cadetblue">.</button>
+        <button type="button" class="numbers" value="0" onclick="solve('0')">0</button>
+        <button type="button" class="numbers" value='' style="background-color: red" onclick="clearInput()">
+          C
+        </button>
+        <button type="button" class="btn" value="=" onclick="calculate()">=</button>
+      </div>
+    </div>
+   
+  </body>
+</html>
