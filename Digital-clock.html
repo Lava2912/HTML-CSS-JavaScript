@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Digital Clock</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .clock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 60px;
+        color: aliceblue;
+      }
+    </style>
+    <script>
+      function display() {
+        let hour = new Date().getHours();
+        let minute = new Date().getMinutes();
+        let seconds = new Date().getSeconds();
+        document.getElementById("clock").innerHTML =
+          hour + " : " + minute + " : " + seconds;
+        setInterval(display, 1000);
+      }
+    </script>
+  </head>
+  <body onload="display()">
+    <div class="clock" id="clock"></div>
+  </body>
+</html>
